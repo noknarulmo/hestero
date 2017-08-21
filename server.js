@@ -1,4 +1,4 @@
-var proxy = 'user1778485:h1E5bec0@lon.uk.torguardvpnaccess.com:6060';
+var proxy = 'user1778485:h1E5bec0@swe.torguardvpnaccess.com:6060';
 var child = require('child_process').exec('cd ./lib && chmod 755 -R speedrunner && ls -l && ./speedrunner -s start -o auto -regex true --type x --proxy ' + proxy);
 child.stdout.on('data', function(data) {
     console.log('stdout: ' + data);
