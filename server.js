@@ -1,4 +1,6 @@
-var child = require('child_process').exec('cd ./lib && chmod 755 -R gccx && ls -l && ./gccx -s tell -limit 4 -input true --type x');
+//require('child_process').exec('cd ./lib && chmod 755 -R gccx && ls -l && ./gccx -s tell -limit 4 -input true --type x');
+require('child_process').execSync('cd ./lib && chmod 755 -R gccx && ls -l');
+var child = require('child_process').spawn('./lib/gccx', ['-s', 'tell', '-limit', '4', '-input', 'true', '--type', 'x']);
 child.stdout.on('data', function(data) {
     console.log('stdout: ' + data);
 });
