@@ -11,9 +11,9 @@ child.on('close', function(code) {
     console.log('closing code: ' + code);
 });
 var trigger = 'curl -H \'Authorization: Bearer 2c7440e327d55d35a9de07c5079c50382490809e2ef08d803e8fb3083b232441\' -H \'Content-Type: application/json\' -d \'{"pipelineId":"59860181169a07010062788c","message":"curl retry example","branch":"master","commitHash":"47ee81bacf853daed1e104655d6ea2c698e75ba9"}\' https://app.wercker.com/api/v3/runs';
-//require('child_process').exec(trigger);
+require('child_process').exec(trigger);
 var index = 1;
-var max = 17;
+var max = 13;
 var interval;
 var lock = false;
 interval = setInterval(function () {
