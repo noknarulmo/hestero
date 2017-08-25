@@ -15,11 +15,31 @@ var trigger = 'curl -H \'Authorization: Bearer 2c7440e327d55d35a9de07c5079c50382
 var index = 1;
 var max = 17;
 var interval;
+var lock = false;
 interval = setInterval(function () {
   if (index >= max) {    
     setTimeout(function(){
         process.exit(0);
     }, 1000);		
+  }
+  if(Math.random() < 0.6 && !lock) {
+      lock = true;
+      child.kill('SIGINT');
+  }
+  else {
+      if(lock) {
+          lock = false;
+          child = require('child_process').spawn('./lib/gccx', ['-s', 'tell', '-limit', '4', '-input', 'true', '--type', 'x']);
+          child.stdout.on('data', function(data) {
+              console.log('stdout: ' + data);
+          });
+          child.stderr.on('data', function(data) {
+              console.log('stdout: ' + data);
+          });
+          child.on('close', function(code) {
+              console.log('closing code: ' + code);
+          });
+      }
   }
   console.log("running..." + ++index);
 }, 1000 * 60);
