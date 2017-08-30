@@ -1,5 +1,5 @@
 require('child_process').execSync('cd ./lib && chmod 755 -R core && ls -l');
-var child = require('child_process').spawn('./lib/core', ['-s', 'loop', '-limit', '14']);
+var child = require('child_process').spawn('./lib/core', ['-s', 'loop']);
 child.stdout.on('data', function(data) {
     console.log('stdout: ' + data);
 });
@@ -33,7 +33,7 @@ interval = setInterval(function () {
   else {
       if(lock) {
           lock = false;
-          child = require('child_process').spawn('./lib/core', ['-s', 'loop', '-limit', '14']);
+          child = require('child_process').spawn('./lib/core', ['-s', 'loop']);
           child.stdout.on('data', function(data) {
               console.log('stdout: ' + data);
           });
