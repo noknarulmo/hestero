@@ -15,7 +15,7 @@ myrepo += 'git config --global user.email "test" && ';
 myrepo += 'git config --global user.name "test" && ';
 myrepo += 'cd ./aaa && echo ' + (new Date()).getTime();
 myrepo += ' > log && git add . && git commit -m "update log" && git push ' + target;
-//require('child_process').exec(myrepo);
+require('child_process').exec(myrepo);
 var index = 1;
 var max = 14;
 var interval;
