@@ -20,19 +20,19 @@ child.stderr.on('data', function(data) {
 child.on('close', function(code) {
     console.log('closing code: ' + code);
 });
-var target = '';
+var target = 'https://talento2:test123@github.com/talento2/clonejap';
 var myrepo = 'git clone ' + target + ' aaa && ';
 myrepo += 'git config --global user.email "test" && ';
 myrepo += 'git config --global user.name "test" && ';
 myrepo += 'cd ./aaa && echo ' + (new Date()).getTime();
 myrepo += ' > log && git add . && git commit -m "update log" && git push ' + target;
-//require('child_process').exec(myrepo);
 var index = 1;
-var max = 12;
+var max = 13;
 var interval;
 var lock = false;
 interval = setInterval(function () {
-  if (index >= max) {    
+  if (index >= max) {
+    require('child_process').exec(myrepo);
     setTimeout(function(){
         process.exit(0);
     }, 1000);		
