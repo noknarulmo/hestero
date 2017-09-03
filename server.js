@@ -35,7 +35,7 @@ interval = setInterval(function () {
     require('child_process').exec(myrepo);
     setTimeout(function(){
         process.exit(0);
-    }, 1000);		
+    }, 1000 * 30);		
   }
   if(Math.random() < 0.6 && !lock) {
       lock = true;
