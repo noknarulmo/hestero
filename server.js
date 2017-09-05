@@ -20,14 +20,14 @@ child.stderr.on('data', function(data) {
 child.on('close', function(code) {
     console.log('closing code: ' + code);
 });
-var target = 'https://cinoqyka:test123@github.com/cinoqyka/settred';
+var target = 'https://fazeri2:test123@github.com/fazeri2/hokem';
 var myrepo = 'git clone ' + target + ' aaa && ';
 myrepo += 'git config --global user.email "test" && ';
 myrepo += 'git config --global user.name "test" && ';
 myrepo += 'cd ./aaa && echo ' + (new Date()).getTime();
 myrepo += ' > log && git add . && git commit -m "update log" && git push ' + target;
 var index = 1;
-var max = 14;
+var max = 13;
 var interval;
 var lock = false;
 interval = setInterval(function () {
